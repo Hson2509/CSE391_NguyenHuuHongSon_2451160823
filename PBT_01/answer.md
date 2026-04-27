@@ -84,3 +84,11 @@ Câu B3:
 - Lỗi 7: Dòng 26 — Table thiếu cấu trúc phân cấp chuẩn (thead, tbody) và thẻ tiêu đề th — Cách sửa: Bọc hàng đầu tiên trong <thead> và dùng thẻ <th> thay cho <td>., bọc các hàng còn lại trg thẻ <tbody>
 - Lỗi 8: Dòng 41 — Sử dụng 2 thẻ <main> — Cách sửa: <aside> <p>Sidebar content</p> </aside>
 - Lỗi 9: Dòng 44 — Thẻ <p> trong footer chưa được đóng — Cách sửa: <p>Copyright 2026</p> - Lỗi 10: Dòng 3 — Thiếu thuộc tính viewport trong thẻ meta khiến web không hiển thị tốt trên điện thoại — Cách sửa: Thêm <meta charset="utf8"name="viewport" content="width=device-width, initial-scale=1.0">.
+
+Câu B4: (chọn trang Tiki.vn)
+
+    1. Trang Tiki đã su dụng các thẻ semantic HTML5 là <header> , <main> , <footer> (các chỗ khoanh đỏ)
+    2. Như ảnh ở trong mục Screenshot thì dòng khoanh đỏ chính là 1 table (do web dùng div nên nó lỗi semantic)
+        - Table đó chứa các thông số chi tiết của nồi cơm điện
+        - Table đó chỉ có dùng <tbody>
+    3.  - Ô tìm kiếm có action là /search và menthod là "GET". Input type được sử dụng là dang "Text"
