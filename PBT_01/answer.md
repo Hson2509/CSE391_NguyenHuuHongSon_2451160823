@@ -92,3 +92,92 @@ Câu B4: (chọn trang Tiki.vn)
         - Table đó chứa các thông số chi tiết của nồi cơm điện
         - Table đó chỉ có dùng <tbody>
     3.  - Ô tìm kiếm có action là /search và menthod là "GET". Input type được sử dụng là dang "Text"
+
+Bài C1: Thiết kế cấu trúc HTML cho trang chi tiết sản phẩm
+
+<header> <!--Đây là phần đầu trang-->
+    <nav> --- <!--Đây là thanh điều hướng -->
+        <ul> 
+            <li></li> 
+        </ul>
+    </nav>
+</header>
+
+<main> <!--Đây là nội dung chính -->
+    <nav aria-label="Breadcrumb"> <!-- nav vì đây là điều hướng -->
+        <ol> <!-- ol vì breadcrumb có thứ tự -->
+            <li></li> 
+            <li></li> 
+            <li></li> 
+        </ol>
+    </nav>
+
+    <div class="product-layout">
+
+        <article>   <!-- dùng để bao lấy toàn bộ nội dung sản phẩm -->
+            <section class="gallery">
+                <figure> <img src="" alt="">     <!-- Đây là dùng để bao hình minh họa -->
+                </figure>
+                <div class="thumbnails">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+            </section>
+
+            <section class="info">                 <!-- Dùng để phân chia các khu vực thông tin khác nhau trong cùng 1 nội dung -->
+                <h1></h1>                        <!-- Dùng để thể hiện tiêu đề sản phẩm -->
+                <p class="price"></p>
+                <div class="rating"></div>
+                <article class="description">
+                    <h2></h2>
+                    <p></p>
+                </article>
+            </section>
+
+            <section class="specs">
+                <h2></h2>
+                <table>  <!-- Dùng cho phần bảng thông số kỹ thuật-->
+                    <thead>  <!-- Chứa tiêu đề cột để người dùng dễ phân biệt.-->
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>  <!-- Chứa thông số cụ thể.-->
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="reviews">
+                <h2></h2>
+                <form action="">
+                    <textarea></textarea>         <!-- Dùng textarea vì đây là chỗ vt bình luận nên thường cần để 1 ô to-->
+                    <button type="submit"></button>
+                </form>
+            </section>
+
+        </article>
+
+        <aside> <!-- thẻ bổ trợ thông tin-->
+            <h3></h3>
+            <section class="related-items">
+                <figure></figure>
+            </section>
+        </aside>
+
+    </div>
+
+</main>
+
+<footer> <!-- Đây là phần chân trang -->
+    <address></address>   <!-- Đây là phần cung cấp các liên hệ của chủ Website -->  
+</footer>
+
+Bài C2: Bài làm
+Việc lạm dụng <div> cho mọi thành phần trên trang web là một tư duy "mì ăn liền" và sẽ gây ra nhiều hệ lụy kỹ thuật nghiêm trọng về lâu dài. Đầu tiên, xét về góc độ SEO, các công cụ tìm kiếm như Google không "nhìn" giao diện bằng mắt mà đọc cấu trúc mã nguồn. Khi sử dụng Semantic HTML như <h1>, <article> hay <main>, chúng ta đang trực tiếp cung cấp từ khóa và sơ đồ nội dung quan trọng cho Robot, giúp trang web có thứ hạng tốt hơn hẳn so với một "biển" <div> vô hồn. Thứ hai, về Accessibility (Khả năng tiếp cận), những người khiếm thị sử dụng trình đọc màn hình sẽ hoàn toàn lạc lối nếu trang web không có các thẻ ngữ nghĩa. Các thẻ như <nav> hay <header> đóng vai trò là các cột mốc định vị, cho phép họ nhảy nhanh đến phần mình cần, điều mà các thẻ <div> gắn class không bao giờ làm được.
+Một ví dụ cụ thể là khi thiết kế trang chi tiết sản phẩm: nếu dùng thẻ <table> cho bảng thông số kỹ thuật, trình duyệt và các thiết bị hỗ trợ sẽ mặc định hiểu đây là dữ liệu đối chiếu giữa thuộc tính và giá trị. Ngược lại, nếu dùng <div>, bạn sẽ phải tốn gấp đôi công sức viết CSS và JavaScript để giả lập lại các hành vi mà lẽ ra thẻ <table> đã có sẵn. Tuy nhiên, <div> không phải là vô dụng; nó vẫn là lựa chọn hoàn hảo trong các trường hợp thuần về Layout và Styling. Ví dụ, khi bạn cần một cái bọc trung lập để sử dụng display: flex căn chỉnh vị trí hoặc tạo các lớp nền trang trí mà không mang ý nghĩa nội dung cụ thể, <div> chính là công cụ sạch nhất để không làm nhiễu cấu trúc dữ liệu của trang. Tóm lại, Semantic HTML là tiêu chuẩn của một lập trình viên chuyên nghiệp, giúp sản phẩm bền vững và thân thiện hơn với mọi đối tượng người dùng.
