@@ -87,7 +87,7 @@ Câu B3:
 
 Câu B4: (chọn trang Tiki.vn)
 
-    1. Trang Tiki đã su dụng các thẻ semantic HTML5 là <header> , <main> , <footer> (các chỗ khoanh đỏ)
+    1. Trang Tiki đã su dụng 3 thẻ semantic HTML5 là <header> , <main> , <footer> (các chỗ khoanh đỏ)
     2. Như ảnh ở trong mục Screenshot thì dòng khoanh đỏ chính là 1 table (do web dùng div nên nó lỗi semantic)
         - Table đó chứa các thông số chi tiết của nồi cơm điện
         - Table đó chỉ có dùng <tbody>
@@ -113,7 +113,6 @@ Bài C1: Thiết kế cấu trúc HTML cho trang chi tiết sản phẩm
     </nav>
 
     <div class="product-layout">
-
         <article>   <!-- dùng để bao lấy toàn bộ nội dung sản phẩm -->
             <section class="gallery">
                 <figure> <img src="" alt="">     <!-- Đây là dùng để bao hình minh họa -->
