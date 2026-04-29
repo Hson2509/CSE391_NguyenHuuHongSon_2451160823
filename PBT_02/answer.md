@@ -105,3 +105,59 @@ CÂU A5: So sánh <img> và <figure>
 - <figure>: là một đơn vị nội dung độc lập có chứa hình ảnh và các thông tin bổ trợ.
 - Dùng <img> khi hình ảnh là một phần không thể tách rời của nội dung văn bản hoặc chỉ đóng vai trò minh họa bổ trợ ngay tại vị trí đó. Nếu xóa ảnh đi, đoạn văn có thể trở nên khó hiểu hoặc thiếu sót.
 - Dùng <figure> khi hình ảnh là một khối nội dung tự thân, có chú thích rõ ràng. <figure> có thể được di chuyển đến vị trí khác trong bài viết
+
+CÂU C1:
+
+- Lỗi 1: Dòng 2 — Input "Tên" không có <label for="...">, vi phạm accessibility.
+
+Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+- Lỗi 2: Dòng 4 — Input Email sử dụng placeholder thay thế cho nhãn, gây khó khăn cho người dùng khi đã nhập liệu và trình đọc màn hình.
+
+Sửa: <label for="email">Email:</label> <input type="email" id="email" name="email" required>
+
+- Lỗi 3: Dòng 6 & 7 — Hai ô mật khẩu không có thuộc tính name và không có minlength, dẫn đến không gửi được dữ liệu và thiếu validation phía client.
+
+Sửa: <label for="pw">Mật khẩu:</label> <input type="password" id="pw" name="password" minlength="8" required>
+
+- Lỗi 4: Dòng 9 — Input Phone dùng type="text", không tối ưu bàn phím số trên di động và thiếu validation định dạng.
+
+Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+- Lỗi 5: Dòng 11 — Thẻ <select> thiếu nhãn (label) và không có thuộc tính name để định danh dữ liệu gửi đi.
+
+Sửa: <label for="city">Thành phố:</label> <select id="city" name="city">...</select>
+
+- Lỗi 6: Dòng 16 — Thẻ <label> điều khoản không gắn với ô checkbox nào, người dùng không thể tích chọn bằng cách nhấn vào chữ.
+
+Sửa: <input type="checkbox" id="terms" name="terms" required> <label for="terms">Tôi đồng ý điều khoản</label>
+
+- Lỗi 7: Toàn form — Thiếu thuộc tính action và method trong thẻ <form>, vi phạm best practice về giao tiếp dữ liệu.
+
+Sửa: <form action="/submit-data" method="POST">
+
+- Lỗi 8: Dòng 19 — Sử dụng <input type="submit"> thay vì thẻ <button>, hạn chế khả năng tùy biến giao diện và chèn icon.
+
+Sửa: <button type="submit">Gửi</button>
+
+BÀI C2:
+
+1. CMND/CCCD: pattern= "[0-9]{12}"
+   Số tài khoản : pattern= "[0-9]{10,15}"
+
+2. HTML5 validation không đủ an toàn cho ứng dụng ngân hàng vì:
+
+- Dễ bị vô hiệu hóa: Người dùng có thể dễ dàng mở Developer Tools (F12) để xóa thuộc tính required hoặc pattern, hoặc thêm thuộc tính novalidate vào thẻ <form>.
+- Dễ bị bypass: Các công cụ như Postman hoặc lệnh curl có thể gửi dữ liệu trực tiếp đến Server mà không cần thông qua trình duyệt, từ đó bỏ qua hoàn toàn mọi lớp bảo vệ của HTML.
+- Phụ thuộc trình duyệt: Một số trình duyệt cũ hoặc trình duyệt tùy chỉnh có thể không thực thi đúng các quy tắc validation của HTML5.
+
+3. 3 loại validation HTML5 KHÔNG THỂ làm được (Cần JavaScript):
+
+- So sánh các trường dữ liệu : Ví dụ như kiểm tra "Mật khẩu" và "Nhập lại mật khẩu" có khớp nhau hay không.
+- Kiểm tra dữ liệu theo thời gian thực từ Server : Ví dụ như kiểm tra xem "Số tài khoản" hoặc "Email" này đã tồn tại trong hệ thống ngân hàng hay chưa ngay khi người dùng vừa nhập xong.
+- Logic điều kiện phức tạp: Ví dụ nếu khách hàng chọn loại tài khoản "Doanh nghiệp" thì trường "Mã số thuế" mới trở thành bắt buộc, còn tài khoản "Cá nhân" thì không.
+
+4. 2 rủi ro bảo mật nếu chỉ validate Frontend (Bỏ qua Backend):
+
+- Tấn công tiêm nhiễm dữ liệu: Kẻ tấn công có thể gửi các đoạn mã độc, script hoặc lệnh SQL vào các trường dữ liệu. Nếu Backend không kiểm tra và làm sạch lại, hệ thống có thể bị chiếm quyền điều khiển hoặc rò rỉ toàn bộ cơ sở dữ liệu khách hàng.
+- Phá hoại tính toàn vẹn của dữ liệu (Data Integrity): Kẻ xấu có thể gửi số tiền là một số âm hoặc thay đổi mã định danh tài khoản để thực hiện giao dịch trái phép. Nếu Backend tin tưởng hoàn toàn vào dữ liệu từ Frontend, ngân hàng sẽ gặp tổn thất tài chính nghiêm trọng.
