@@ -106,6 +106,16 @@ CÂU A5: So sánh <img> và <figure>
 - Dùng <img> khi hình ảnh là một phần không thể tách rời của nội dung văn bản hoặc chỉ đóng vai trò minh họa bổ trợ ngay tại vị trí đó. Nếu xóa ảnh đi, đoạn văn có thể trở nên khó hiểu hoặc thiếu sót.
 - Dùng <figure> khi hình ảnh là một khối nội dung tự thân, có chú thích rõ ràng. <figure> có thể được di chuyển đến vị trí khác trong bài viết
 
+BÀI B1:
+
+- HTML5 không thể tự động validate "Confirm Password" vì
+
+- Tính độc lập của dữ liệu: HTML5 Validation hoạt động dựa trên các quy tắc tĩnh (static rules) áp dụng cho từng phần tử riêng biệt (như required, pattern, minlength). Nó kiểm tra xem giá trị của ô đó có đúng định dạng không, chứ không quan tâm đến giá trị của các ô khác xung quanh.
+
+- Thiếu toán tử so sánh: Để kiểm tra "Xác nhận mật khẩu", trình duyệt cần thực hiện một phép tính logic so sánh: Giá trị ô A == Giá trị ô B. HTML5 thuần túy không cung cấp thuộc tính nào (ví dụ như match="id_cua_o_khac") để thực hiện việc này.
+
+- Cần Logic động: Việc kiểm tra hai trường dữ liệu có khớp nhau hay không là một hành động mang tính chất logic động (Dynamic logic). Do đó, chúng ta bắt buộc phải dùng JavaScript để so sánh giá trị của hai ô này trước khi cho phép gửi form đi.
+
 CÂU C1:
 
 - Lỗi 1: Dòng 2 — Input "Tên" không có <label for="...">, vi phạm accessibility.
