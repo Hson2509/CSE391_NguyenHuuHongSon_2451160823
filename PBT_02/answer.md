@@ -171,3 +171,6 @@ BÀI C2:
 
 - Tấn công tiêm nhiễm dữ liệu: Kẻ tấn công có thể gửi các đoạn mã độc, script hoặc lệnh SQL vào các trường dữ liệu. Nếu Backend không kiểm tra và làm sạch lại, hệ thống có thể bị chiếm quyền điều khiển hoặc rò rỉ toàn bộ cơ sở dữ liệu khách hàng.
 - Phá hoại tính toàn vẹn của dữ liệu (Data Integrity): Kẻ xấu có thể gửi số tiền là một số âm hoặc thay đổi mã định danh tài khoản để thực hiện giao dịch trái phép. Nếu Backend tin tưởng hoàn toàn vào dữ liệu từ Frontend, ngân hàng sẽ gặp tổn thất tài chính nghiêm trọng.
+
+Link drive của phần D:
+https://drive.google.com/drive/folders/1AxuHrqNZGoez33Au7-OKoY3Ice6YLOVo?fbclid=IwY2xjawROdApleHRuA2FlbQIxMABicmlkETFvc1dQSHdjQUYyREtiejFYc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn9M5phF6r9aTxXwyMFoKgXl5PSdo6m29qv925xqOLEqmsIpnMyKBoLjFjkw_aem_tkN2q7cqKBlEZLqK1xsIyQ
