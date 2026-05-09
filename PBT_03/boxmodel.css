@@ -1,0 +1,61 @@
+.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  color: white;
+}
+.content-box {
+  box-sizing: content-box;
+  background-color: #e74c3c;
+}
+.border-box {
+  box-sizing: border-box;
+  background-color: #3498db;
+}
+
+.container {
+  width: 1000px;
+  margin: 20px auto;
+  border: 3px solid red;
+  overflow: hidden;
+}
+.column {
+  float: left;
+}
+
+/* Trường hợp 1: KHÔNG dùng border-box (Bị vỡ layout) */
+.case-content-box .sidebar {
+  width: 250px;
+  padding: 15px;
+  background: #ddd;
+}
+.case-content-box .content {
+  width: 500px;
+  padding: 20px;
+  background: #eee;
+}
+.case-content-box .ads {
+  width: 250px;
+  padding: 15px;
+  background: #ddd;
+}
+
+/* Trường hợp 2: DÙNG border-box (Vừa khít 1000px) */
+.case-border-box .column {
+  box-sizing: border-box;
+}
+.case-border-box .sidebar {
+  width: 250px;
+  padding: 15px;
+  background: #d1ecf1;
+}
+.case-border-box .content {
+  width: 500px;
+  padding: 20px;
+  background: #e2e3e5;
+}
+.case-border-box .ads {
+  width: 250px;
+  padding: 15px;
+  background: #d1ecf1;
+}

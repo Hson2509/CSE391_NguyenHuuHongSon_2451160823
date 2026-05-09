@@ -137,6 +137,26 @@ Câu A4 (5đ) — Specificity (Độ ưu tiên)
 
 - Element sẽ có màu đen vì thuộc tính (!important) có điểm specificity score là cao nhất cho dù nó nằm ở bất kì đâu
 
+Bài B1 (20đ) — Style trang Profile
+
+- Trong file css em đã sử dụng
+  - element: body, header
+  - class : .intro
+  - id : #contact
+  - descendant: nav ul
+  - pseudo-class: nav a:hover
+
+Bài B2 (20đ) — Box Model Lab
+
+- Phần 1:
+- Hộp 1 (content-box): chiều rộng thực tế = 300+ (20*2)+(5*2) = 350 px (đo từ DevTools)
+- Hộp 2 (border-box): chiều rộng thực tế = 300 px (đo từ DevTools)
+- Sự khác biệt:
+  Content-box: Thuộc tính width chỉ tính cho phần nội dung bên trong. Khi thêm padding và border, kích thước hộp sẽ bị nở to ra ngoài.
+  Border-box: Thuộc tính width bao gồm cả nội dung, padding và border. Khi thêm padding/border, phần nội dung sẽ bị thu hẹp lại để đảm bảo tổng chiều rộng hộp không thay đổi.
+
+- Phần 2: sreenshots
+
 Câu C1 (10đ) — Debug CSS Layout
 Layout dưới đây bị vỡ. Container rộng 960px, sidebar + content phải nằm cạnh nhau. Nhưng content bị đẩy xuống dòng mới.
 
