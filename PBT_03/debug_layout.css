@@ -1,0 +1,38 @@
+/* -Cách 1: Sử dụng box-sizing: border-box;*/
+/* .container {
+  width: 960px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+}
+.content {
+  width: 660px;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+} */
+
+/* -Cách 1: Không Sử dụng box-sizing: border-box;*/
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 258px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+}
+.content {
+  width: 598px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+}

@@ -136,3 +136,83 @@ Câu A4 (5đ) — Specificity (Độ ưu tiên)
 4. Nếu Rule A thêm !important, element có màu gì? Tại sao?
 
 - Element sẽ có màu đen vì thuộc tính (!important) có điểm specificity score là cao nhất cho dù nó nằm ở bất kì đâu
+
+Câu C1 (10đ) — Debug CSS Layout
+Layout dưới đây bị vỡ. Container rộng 960px, sidebar + content phải nằm cạnh nhau. Nhưng content bị đẩy xuống dòng mới.
+
+.container {
+width: 960px;
+margin: 0 auto;
+}
+.sidebar {
+width: 300px;
+padding: 20px;
+border: 1px solid #ccc;
+float: left;
+}
+.content {
+width: 660px;
+padding: 30px;
+border: 1px solid #ccc;
+float: left;
+}
+1.Tính chiều rộng thực tế của sidebar và content (content-box!)
+
+- Chiều rộng thực tế của sidebar là: 300 + 40 + 2 = 342px
+- Chiều rộng thực tế của sidebar là: 660 + 60 + 2 = 722px
+  2.Giải thích tại sao layout bị vỡ
+- Layout bị vỡ vì cái container bao chúng chỉ có maxwidth là 960px trong khi đó tổng chiều rộng của sidebar + content là 1064px.
+  3.Đưa ra 2 cách sửa khác nhau (1 cách dùng border-box, 1 cách không dùng)
+  -Cách 1: Dùng border-box:
+  .container {
+  width: 960px;
+  margin: 0 auto;
+  }
+  .sidebar {
+  width: 300px;
+  box-sizing: border-box
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+  }
+  .content {
+  width: 660px;
+  padding: 30px;
+  box-sizing: border-box
+  border: 1px solid #ccc;
+  float: left;
+  }
+
+  -Cách 2: Không dùng border-box
+  .container {
+  width: 960px;
+  margin: 0 auto;
+  }
+  .sidebar {
+  width: 258px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+  }
+  .content {
+  width: 598px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+  }
+
+Câu C2 (10đ) — Cascade Puzzle
+
+- "Sản phẩm A" (h2) có font-size = 20 và color = green
+  - font-size = 20 :Trình duyệt tìm thấy selector .card .title có font-size: 20px. Mặc dù nó nằm trong .container (14px), nhưng selector trực tiếp luôn thắng giá trị thừa kế.
+  - color = green: Có 3 selector tác động lên màu sắc: .highlight (green), #featured .title (red) và .card (blue). Nhưng selector .highlight (green) có thuộc tính !important nên nó sẽ đè lên 2 selector còn lại
+
+- "Mô tả sản phẩm" (p trong card featured) có color = blue
+  - Phần tử cha .card có color: blue.Phần tử p có thuộc tính color: inherit, nghĩa là nó bắt buộc phải lấy giá trị màu từ cha của nó.Do đó, nó nhận màu xanh từ .card thay vì màu đen của body
+
+- "Sản phẩm B" (h2) có font-size = 20 và color = blue
+  - font-size = 20 :Trình duyệt tìm thấy selector .card .title có font-size: 20px. Mặc dù nó nằm trong .container (14px), nhưng selector trực tiếp luôn thắng giá trị thừa kế.
+  - color: blue: Do nó không nằm trong #feature và nó ko có class "highlight" , nó kế thừa màu từ thằng cha của nó .card (blue).
+
+- "Mô tả sản phẩm B" (p.highlight) có color = green
+  - Mặc dù phần tử p này có lệnh color: inherit (đang cố lấy màu xanh từ .card), nhưng class .highlight được viết trực tiếp trên chính nó và có !important nên màu xanh lá cây thắng
