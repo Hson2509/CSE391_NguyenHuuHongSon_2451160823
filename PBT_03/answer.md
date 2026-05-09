@@ -157,6 +157,24 @@ Bài B2 (20đ) — Box Model Lab
 
 - Phần 2: sreenshots
 
+Bài B3 (15đ) — Specificity Battle
+
+- Liệt kê 10 rules + specificity score
+  - body : 0,0,0 (Inheritance)
+  - p : 0,0,1
+  - body p : 0,0,2
+  - .text : 0,1,0
+  - p.text : 0,1,1
+  - .text.highlight : 0,2,0
+  - p.text.highlight : 0,2,1
+  - #demo : 1,0,0
+  - p#demo : 1,0,1
+  - p#demo.text.highlight : 1,2,1
+- Element cuối cùng hiển thị màu gì? Tại sao?
+- Element cuối cùng hiển thị màu đỏ vì Selector p#demo.text.highlight có độ ưu tiên (specificity score) cao nhất (1 ID, 2 Classes, 1 Element). Trong CSS Cascade, quy tắc có điểm cao nhất sẽ thắng, bất kể nó nằm ở vị trí nào trong file.
+- Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
+- Thay đổi thứ tự rules trong CSS file. Kết quả Không đổi vẫn là màu đỏ vì thứ tự trong css chỉ có tác dụng vs các selector có độ ưu tiên ngang nhau. Trong trường hợp trên các selector có độ uu tiên khác nhau nên rule có điểm cao hơn sẽ thắng bất kể vị trí
+
 Câu C1 (10đ) — Debug CSS Layout
 Layout dưới đây bị vỡ. Container rộng 960px, sidebar + content phải nằm cạnh nhau. Nhưng content bị đẩy xuống dòng mới.
 

@@ -1,0 +1,49 @@
+/* 1. Score: 0,0,0 (Thừa kế - thấp nhất) */
+body {
+  color: gray;
+}
+
+/* 2. Score: 0,0,1 (1 Element) */
+p {
+  color: silver;
+}
+
+/* 3. Score: 0,0,2 (2 Elements) */
+body p {
+  color: maroon;
+}
+
+/* 4. Score: 0,1,0 (1 Class) */
+.text {
+  color: olive;
+}
+
+/* 5. Score: 0,1,1 (1 Class + 1 Element) */
+p.text {
+  color: teal;
+}
+
+/* 6. Score: 0,2,0 (2 Classes) */
+.text.highlight {
+  color: purple;
+}
+
+/* 7. Score: 0,2,1 (2 Classes + 1 Element) */
+p.text.highlight {
+  color: orange;
+}
+
+/* 8. Score: 1,0,0 (1 ID) */
+#demo {
+  color: brown;
+}
+
+/* 9. Score: 1,0,1 (1 ID + 1 Element) */
+p#demo {
+  color: navy;
+}
+
+/* 10. Score: 1,2,1 (1 ID + 2 Classes + 1 Element) */
+p#demo.text.highlight {
+  color: red;
+}
