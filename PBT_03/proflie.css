@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+  margin: auto;
+  padding: 20px;
+}
+header {
+  background-color: rgb(28, 78, 164);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.intro {
+  color: green;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #333;
+  color: white;
+}
+aside {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-top: 20px;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  opacity: 0.6;
+}
+nav a:hover {
+  color: White;
+  text-decoration: underline;
+  opacity: 1;
+}
+nav a.active {
+  color: #125296;
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+tr:nth-child(even) {
+  background-color: #56b856;
+}
+
+tbody tr:hover {
+  background-color: #e1f5fe;
+  cursor: pointer;
+}
+#contact {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  margin-top: 20px;
+}
