@@ -1,0 +1,14 @@
+/* 1. Override Primary Color*/
+:root {
+  --bs-primary: #14b8a6;
+  --bs-primary-rgb: 20, 184, 166;
+  --bs-secondary: #64748b;
+  --bs-secondary-rgb: 100, 116, 139;
+
+  --custom-primary-hover: #0d9488;
+  --custom-slate-700: #334155;
+  --custom-slate-900: #0f172a;
+  --custom-slate-200: #e2e8f0;
+  --custom-bg-light: #f8fafc;
+  --custom-bg-dark: #1e293b;
+}
