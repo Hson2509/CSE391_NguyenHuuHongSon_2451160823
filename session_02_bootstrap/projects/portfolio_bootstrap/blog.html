@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - DevPortfolio</title>
-    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"
+        Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -13,6 +14,7 @@
     <link href="css/custom-theme.css" rel="stylesheet">
     <!-- Blog CSS -->
     <link href="css/blog.css" rel="stylesheet">
+    <link href="css/custom-theme.css" rel="stylesheet">
 </head>
 
 <body>
@@ -160,113 +162,119 @@
             </div>
         </div>
     </section>
-    <div class="card mb-5 border-0 shadow-sm rounded-4 overflow-hidden">
-        <div class="card-header bg-white pt-4 pb-0 border-0 px-4">
-            <h4 class="mb-0 fw-bold">Leave a Comment</h4>
-        </div>
-        <div class="card-body p-4">
-            <form>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="name" class="form-label fw-medium">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="email" class="form-label fw-medium">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="comment" class="form-label fw-medium">Comment</label>
-                    <textarea class="form-control" id="comment" rows="4" placeholder="Share your thoughts..."
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary px-4 fw-medium">Post Comment</button>
-            </form>
-        </div>
-    </div>
-    <div class="comments-section mt-5">
-        <h4 class="mb-4 fw-bold">4 Comments</h4>
-
-        <!-- ==================== PARENT COMMENT 1 ==================== -->
-        <div class="comment mb-4 pb-3 border-bottom">
-            <div class="d-flex align-items-start">
-                <img src="https://ui-avatars.com/api/?name=Alex+Carter&background=e2e8f0&color=333"
-                    class="rounded-circle me-3" alt="Avatar">
-                <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 fw-bold">Alex Carter</h6>
-                        <small class="text-muted ">2 hours ago</small>
-                    </div>
-                    <p class="mb-2 mt-1">Great article! Very helpful for beginners transitioning to Bootstrap 5. The
-                        grid system explanation was spot on.</p>
-                    <button class="btn btn-sm btn-link text-decoration-none fw-medium">
-                        <i class="bi bi-reply-fill"></i> Reply
-                    </button>
-
-                    <!-- Nested Reply (Nằm đúng vị trí bên trong Parent 1) -->
-                    <div class="comment reply ms-5 align-items-start">
-                        <div class="d-flex align-items-start">
-                            <img src="https://ui-avatars.com/api/?name=Hong+Son&background=0d6efd&color=fff"
-                                class="rounded-circle me-3 " alt="Author Avatar">
-                            <div class="flex-grow-1">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="mb-0 fw-bold">Nguyen Huu Hong Son <span class="badge bg-primary ms-1"
-                                            style="font-size: 0.65em;">Author</span></h6>
-                                    <small class="text-muted ">1 hour ago</small>
-                                </div>
-                                <p class="mb-2 mt-1">Thank you Alex! Glad it helped. Let me know if you want me to cover
-                                    any other Bootstrap components.</p>
-                                <button class="btn btn-sm btn-link text-decoration-none fw-medium">
-                                    <i class="bi bi-reply-fill"></i> Reply
-                                </button>
-                            </div>
+    <div class="container">
+        <div class="card mb-5 border-0 shadow-sm rounded-4 overflow-hidden">
+            <div class="card-header bg-white pt-4 pb-0 border-0 px-4">
+                <h4 class="mb-0 fw-bold">Leave a Comment</h4>
+            </div>
+            <div class="card-body p-4 col-lg-8">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label fw-medium">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label fw-medium">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== PARENT COMMENT 2 ==================== -->
-        <div class="comment mb-4 pb-3 border-bottom">
-            <div class="d-flex align-items-start">
-                <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" class="rounded-circle me-3"
-                    alt="Avatar">
-                <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 fw-bold">Sarah Jenkins</h6>
-                        <small class="text-muted pr-2">5 hours ago</small>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label fw-medium">Comment</label>
+                        <textarea class="form-control" id="comment" rows="4" placeholder="Share your thoughts..."
+                            required></textarea>
                     </div>
-                    <p class="mb-2 mt-1">I've been trying to figure out how to make sticky sidebars work perfectly on
-                        mobile and desktop. This code snippet saved me so much time!</p>
-                    <button class="btn btn-sm btn-link text-decoration-none fw-medium">
-                        <i class="bi bi-reply-fill"></i> Reply
-                    </button>
-                </div>
+                    <button type="submit" class="btn btn-primary px-4 fw-medium">Post Comment</button>
+                </form>
             </div>
         </div>
+        <div class="container">
+            <div class="comments-section mt-5 col-lg-8 align-items-center ">
+                <h4 class="mb-4 fw-bold">4 Comments</h4>
 
-        <!-- ==================== PARENT COMMENT 3 ==================== -->
-        <div class="comment mb-4">
-            <div class="d-flex align-items-start">
-                <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=random" class="rounded-circle me-3"
-                    alt="Avatar">
-                <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 fw-bold">Michael Chen</h6>
-                        <small class="text-muted">1 day ago</small>
+                <!-- ==================== PARENT COMMENT 1 ==================== -->
+                <div class="comment mb-4 pb-3 border-bottom">
+                    <div class="d-flex align-items-start">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Carter&background=e2e8f0&color=333"
+                            class="rounded-circle me-3" alt="Avatar">
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0 fw-bold">Alex Carter</h6>
+                                <small class="text-muted ">2 hours ago</small>
+                            </div>
+                            <p class="mb-2 mt-1">Great article! Very helpful for beginners transitioning to Bootstrap 5.
+                                The
+                                grid system explanation was spot on.</p>
+                            <button class="btn btn-sm btn-link text-decoration-none fw-medium">
+                                <i class="bi bi-reply-fill"></i> Reply
+                            </button>
+                            <div class="comment reply ms-5 align-items-start">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://ui-avatars.com/api/?name=Hong+Son&background=0d6efd&color=fff"
+                                        class="rounded-circle me-3 " alt="Author Avatar">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0 fw-bold">Nguyen Huu Hong Son <span
+                                                    class="badge bg-primary ms-1"
+                                                    style="font-size: 0.65em;">Author</span></h6>
+                                            <small class="text-muted ">1 hour ago</small>
+                                        </div>
+                                        <p class="mb-2 mt-1">Thank you Alex! Glad it helped. Let me know if you want me
+                                            to
+                                            cover
+                                            any other Bootstrap components.</p>
+                                        <button class="btn btn-sm btn-link text-decoration-none fw-medium">
+                                            <i class="bi bi-reply-fill"></i> Reply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <p class="mb-2 mt-1">Nice clean UI. Did you use pure CSS for the comments or is it entirely
-                        dependent on Bootstrap utilities?</p>
-                    <button class="btn btn-sm btn-link text-decoration-none fw-medium">
-                        <i class="bi bi-reply-fill"></i> Reply
-                    </button>
                 </div>
-            </div>
-        </div>
 
-    </div>
+                <!-- ==================== PARENT COMMENT 2 ==================== -->
+                <div class="comment mb-4 pb-3 border-bottom">
+                    <div class="d-flex align-items-start">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random"
+                            class="rounded-circle me-3" alt="Avatar">
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0 fw-bold">Sarah Jenkins</h6>
+                                <small class="text-muted ">5 hours ago</small>
+                            </div>
+                            <p class="mb-2 mt-1">I've been trying to figure out how to make sticky sidebars work
+                                perfectly
+                                on
+                                mobile and desktop. This code snippet saved me so much time!</p>
+                            <button class="btn btn-sm btn-link text-decoration-none fw-medium">
+                                <i class="bi bi-reply-fill"></i> Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== PARENT COMMENT 3 ==================== -->
+                <div class="comment mb-4">
+                    <div class="d-flex align-items-start">
+                        <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=random"
+                            class="rounded-circle me-3" alt="Avatar">
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0 fw-bold">Michael Chen</h6>
+                                <small class="text-muted">1 day ago</small>
+                            </div>
+                            <p class="mb-2 mt-1">Nice clean UI. Did you use pure CSS for the comments or is it entirely
+                                dependent on Bootstrap utilities?</p>
+                            <button class="btn btn-sm btn-link text-decoration-none fw-medium">
+                                <i class="bi bi-reply-fill"></i> Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 </body>
 
 </html>
