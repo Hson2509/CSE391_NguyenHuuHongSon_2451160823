@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - DevPortfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Theme -->
+    <link href="css/custom-theme.css" rel="stylesheet">
+    <!-- Blog CSS -->
+    <link href="css/blog.css" rel="stylesheet">
+</head>
+
+<body>
+    <section id="blog" class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content (8 columns) -->
+                <div class="col-lg-8">
+                    <!-- Blog Post Card 1 -->
+                    <article class="card mb-4">
+                        <img src="data:image/png;base64,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"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <span class="badge bg-primary">Web Development</span>
+                            <h3 class="card-title mt-2">Building a Fast Portfolio with Next.js</h3>
+                            <p class="card-text text-muted">
+                                <small>By Nguyen Huu Hong Son• May 14 2026 • 5 min read</small>
+                            </p>
+                            <p class="card-text">Discover how to leverage modern frameworks to build a blazing fast,
+                                SEO-friendly personal portfolio. We will explore folder structures, component design,
+                                and optimized image rendering for the best performance.</p>
+                            <a href="#" class="btn btn-outline-primary">Read More</a>
+                        </div>
+                    </article>
+                    <!-- Add 2 more blog posts -->
+                    <article class="card blog-card mb-5">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="card-img-top object-fit-cover" height="350" alt="Hardware Troubleshooting">
+                        <div class="card-body p-4">
+                            <span class="badge bg-danger mb-2 px-3 py-2">Hardware</span>
+                            <h3 class="card-title fw-bold mt-2">How to Fix "Kernel-Power 41" Error</h3>
+                            <p class="card-text text-muted mb-3">
+                                <small>By Nguyen Huu Hong Son • May 14, 2026 • 8 min read</small>
+                            </p>
+                            <p class="card-text">Random restarts and system crashes can be incredibly frustrating. Here
+                                is a step-by-step diagnostic guide to resolving the infamous Kernel-Power 41 error,
+                                covering driver updates and power supply checks.</p>
+                            <a href="#" class="btn btn-outline-primary fw-medium px-4 mt-2">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post Card 3 -->
+                    <article class="card blog-card mb-4">
+                        <img src="https://images.unsplash.com/photo-1612487528505-d2338264c821?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            class="card-img-top object-fit-cover" height="350" alt="System Analysis">
+                        <div class="card-body p-4">
+                            <span class="badge bg-info mb-2 px-3 py-2 text-dark">System Analysis</span>
+                            <h3 class="card-title fw-bold mt-2">Designing an E-commerce Platform for Resin Figures</h3>
+                            <p class="card-text text-muted mb-3">
+                                <small>By Nguyen Huu Hong Son • May 14, 2026 • 6 min read</small>
+                            </p>
+                            <p class="card-text">A deep dive into the system architecture and UML modeling (Use Case,
+                                Sequence, Activity diagrams) for "Comic World", a platform dedicated to high-quality
+                                anime collectibles.</p>
+                            <a href="#" class="btn btn-outline-primary fw-medium px-4 mt-2">Read More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar (4 columns) -->
+                <div class="col-lg-4">
+                    <!-- Sticky sidebar -->
+                    <div class="sticky-top pt-4">
+                        <!-- Search -->
+                        <!-- Categories -->
+                        <!-- Recent Posts -->
+                        <!-- Tags -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
