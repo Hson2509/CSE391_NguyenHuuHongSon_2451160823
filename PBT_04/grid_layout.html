@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Home Page - CSS Grid Layout</title>
+    <link rel="stylesheet" href="grid_layout.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">ShopDoDienTu</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩm, thương hiệu...">
+                <button>Tìm kiếm</button>
+            </div>
+        </header>
+        <section class="hero-banner">
+            <div class="hero-featured">
+                <div class="badge-featured">XU HƯỚNG MỚI</div>
+                <h2>Siêu Phẩm Công Nghệ 2026</h2>
+                <p>Khám phá bộ sưu tập thiết bị thông minh thế hệ mới với hiệu năng đột phá và thiết kế tối giản.</p>
+                <a href="#" class="btn-primary">Mua Ngay Giảm 30%</a>
+            </div>
+        </section>
+
+        <!-- SIDEBAR (Filters) -->
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>Danh Mục</h3>
+                <label><input type="checkbox" checked> Tất cả sản phẩm</label>
+                <label><input type="checkbox"> Điện thoại & Máy tính</label>
+                <label><input type="checkbox"> Phụ kiện cao cấp</label>
+                <label><input type="checkbox"> Thiết bị âm thanh</label>
+            </div>
+            <div class="filter-section">
+                <h3>Khoảng Giá</h3>
+                <label><input type="radio" name="price-filter"> Dưới 2 triệu</label>
+                <label><input type="radio" name="price-filter"> 2 triệu - 10 triệu</label>
+                <label><input type="radio" name="price-filter" checked> Trên 10 triệu</label>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT (Product Grid - 3 Cột) -->
+        <main class="main-content">
+            <h2 class="grid-title">Sản Phẩm Mới Nhất</h2>
+            <div class="product-grid">
+                <!-- Card 1 -->
+                <div class="product-card">
+                    <div class="card-image">💻</div>
+                    <div class="card-info">
+                        <span class="category">Laptop</span>
+                        <h3 class="title">ASUS ROG Strix G16</h3>
+                        <p class="price">34.500.000đ</p>
+                        <button class="btn-add-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="product-card">
+                    <div class="card-image">📱</div>
+                    <div class="card-info">
+                        <span class="category">Smartphone</span>
+                        <h3 class="title">iPhone 17 Pro Ultra</h3>
+                        <p class="price">31.990.000đ</p>
+                        <button class="btn-add-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card">
+                    <div class="card-image">🎧</div>
+                    <div class="card-info">
+                        <span class="category">Audio</span>
+                        <h3 class="title">Sony WH-1000XM6</h3>
+                        <p class="price">8.490.000đ</p>
+                        <button class="btn-add-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="product-card">
+                    <div class="card-image">⌚</div>
+                    <div class="card-info">
+                        <span class="category">Smartwatch</span>
+                        <h3 class="title">Apple Watch X</h3>
+                        <p class="price">14.200.000đ</p>
+                        <button class="btn-add-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="product-card">
+                    <div class="card-image">⌨️</div>
+                    <div class="card-info">
+                        <span class="category">Phụ kiện</span>
+                        <h3 class="title">Bàn phím cơ GMMK Pro 2</h3>
+                        <p class="price">4.800.000đ</p>
+                        <button class="btn-add-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="product-card">
+                    <div class="card-image">鼠标</div>
+                    <div class="card-info">
+                        <span class="category">Phụ kiện</span>
+                        <h3 class="title">Chuột Razer Viper V3 Pro</h3>
+                        <p class="price">3.600.000đ</p>
+                        <button class="btn-add-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside class="ads-banner">
+            <div class="ads-content">
+                <div class="ads-tag">QUẢNG CÁO</div>
+                <h4>Giảm Giá Số Khung!</h4>
+                <p>Nhận ngay voucher hoàn tiền 10% khi thanh toán qua ví điện tử GridPay.</p>
+            </div>
+        </aside>
+
+        <!-- FOOTER (Full Width) -->
+        <footer class="footer">
+            <div class="footer-sections">
+                <div>
+                    <h4>Về chúng tôi</h4>
+                    <p>Hệ thống bán lẻ thiết bị công nghệ hàng đầu, xây dựng trên nền tảng CSS Grid tiên tiến.</p>
+                </div>
+                <div>
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Hình thức vận chuyển</a></li>
+                        <li><a href="#">Đổi trả trong 7 ngày</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Liên hệ</h4>
+                    <p>Email: support@shopgrid.vn<br>Hotline: 1900-XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 ShopGrid. Thiết kế bởi Nguyễn Hữu Hồng Sơn. bảo lưu mọi quyền.
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
