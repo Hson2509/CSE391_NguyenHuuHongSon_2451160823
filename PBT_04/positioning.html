@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo CSS Positioning</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+
+<body>
+
+    <!-- 1. FIXED HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">TechStore</div>
+            <nav class="navigation">
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="#about">Giới thiệu</a>
+                <a href="#contact">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container (Bố cục Trang) -->
+    <div class="main-container">
+
+        <!-- 2. STICKY SIDEBAR -->
+        <aside class="sidebar">
+            <h3>Danh mục sản phẩm</h3>
+            <ul>
+                <li><a href="#laptop">Laptop Gaming</a></li>
+                <li><a href="#phone">Điện thoại thông minh</a></li>
+                <li><a href="#accessory">Phụ kiện công nghệ</a></li>
+                <li><a href="#audio">Thiết bị âm thanh</a></li>
+                <li><a href="#gear">Bàn phím & Chuột</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area" id="products">
+            <h2>Sản phẩm nổi bật</h2>
+            <p class="description">Cuộn trang xuống dưới để trải nghiệm hiệu ứng <strong>Fixed Header</strong>,
+                <strong>Sticky Sidebar</strong>, và nút <strong>Scroll to top</strong> hoạt động thực tế.
+            </p>
+
+            <div class="product-grid">
+                <!-- 3. PRODUCT CARD WITH ABSOLUTE BADGE -->
+                <div class="product-card">
+                    <!-- Badge HOT (Position: Absolute) -->
+                    <span class="badge-hot">HOT</span>
+                    <div class="product-image">💻</div>
+                    <div class="product-info">
+                        <h3>Laptop ASUS Zenbook</h3>
+                        <p class="price">24.990.000đ</p>
+                        <button class="btn-buy">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📱</div>
+                    <div class="product-info">
+                        <h3>iPhone 15 Pro Max</h3>
+                        <p class="price">29.490.000đ</p>
+                        <button class="btn-buy">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="badge-hot">HOT</span>
+                    <div class="product-image">🎧</div>
+                    <div class="product-info">
+                        <h3>Tai nghe Sony WH-1000XM5</h3>
+                        <p class="price">6.890.000đ</p>
+                        <button class="btn-buy">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">⌚</div>
+                    <div class="product-info">
+                        <h3>Apple Watch Ultra 2</h3>
+                        <p class="price">21.190.000đ</p>
+                        <button class="btn-buy">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="badge-hot">HOT</span>
+                    <div class="product-image">⌨️</div>
+                    <div class="product-info">
+                        <h3>Bàn phím cơ Custom</h3>
+                        <p class="price">3.200.000đ</p>
+                        <button class="btn-buy">Mua ngay</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🖱️</div>
+                    <div class="product-info">
+                        <h3>Chuột Logitech G Pro X</h3>
+                        <p class="price">2.890.000đ</p>
+                        <button class="btn-buy">Mua ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đoạn văn bản dài để tạo độ cuộn cho trang (Scroll Space) -->
+            <section class="extra-content">
+                <h2>Chi tiết về kỹ thuật Positioning</h2>
+                <p>Trong CSS, thuộc tính <code>position</code> định nghĩa cách một phần tử được định vị trên trang web.
+                    Có 5 giá trị cơ bản: <code>static</code>, <code>relative</code>, <code>absolute</code>,
+                    <code>fixed</code>, và <code>sticky</code>.
+                </p>
+                <p><strong>1. Position Fixed:</strong> Giúp phần tử được định vị cố định so với cửa sổ trình duyệt
+                    (viewport). Ngay cả khi cuộn trang, phần tử vẫn giữ nguyên vị trí cũ. Thường được dùng cho Header,
+                    Navigation Bar hoặc nút liên hệ nhanh.</p>
+                <p><strong>2. Position Sticky:</strong> Là sự kết hợp giữa <code>relative</code> và <code>fixed</code>.
+                    Phần tử sẽ hoạt động như một phần tử bình thường cho đến khi cuộn tới vị trí thiết lập sẵn (ví dụ:
+                    <code>top: 80px</code>), lúc này nó sẽ "dính" lại tại vị trí đó cho đến khi đi hết phạm vi của thẻ
+                    cha.
+                </p>
+                <p><strong>3. Position Relative & Absolute:</strong> Cặp đôi hoàn hảo để làm các thành phần đè lên nhau.
+                    Thẻ cha được đặt <code>position: relative</code> để làm mốc tọa độ, thẻ con đặt
+                    <code>position: absolute</code> sẽ dịch chuyển dựa trên vị trí của thẻ cha đó (sử dụng top, right,
+                    bottom, left).
+                </p>
+                <p>Bằng cách kết hợp linh hoạt các thuộc tính này, bạn có thể tạo ra các giao diện người dùng cực kỳ
+                    sinh động, hiện đại và tối ưu hóa trải nghiệm cuộn trang.</p>
+                <p>Chúc bạn học tập tốt và làm chủ hoàn toàn CSS Layout!</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- 4. SCROLL TO TOP BUTTON -->
+    <a href="#" class="scroll-to-top" title="Cuộn lên đầu trang">↑</a>
+
+</body>
+
+</html>
