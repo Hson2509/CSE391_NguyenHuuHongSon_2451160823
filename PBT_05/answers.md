@@ -167,6 +167,12 @@ Câu A4 (5đ) — SCSS Basics
 - Các bước để chuyển SCSS thành CSS
   Để chuyển đổi mã SCSS thành CSS (quá trình này gọi là biên dịch hoặc compilation), bạn cần sử dụng một công cụ trung gian gọi là Sass Compiler (Trình biên dịch Sass), vì trình duyệt web mặc định không thể đọc và hiểu trực tiếp file .scss.
 
+Bài B3:
+Mở cửa sổ dòng lệnh (Terminal/Command Prompt) trỏ đúng vào thư mục chứa dự án và chạy câu lệnh sau:
+sass scss/style.scss responsive.css
+Lệnh tự động theo dõi và biên dịch khi lưu file (Watch)
+sass --watch scss/style.scss responsive.css
+
 Câu C1: Mở trang VNExpress
 
 - Mobile (375px)

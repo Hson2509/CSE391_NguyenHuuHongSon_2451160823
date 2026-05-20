@@ -1,0 +1,103 @@
+@import "variables";
+@import "mixins";
+
+// Thiết lập Reset cơ bản
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $bg-light;
+  color: $text-dark;
+  line-height: 1.6;
+}
+
+// Gọi file thành phần giao diện
+@import "components";
+
+// Khung chứa cấu trúc lưới chính
+.layout-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  padding: $spacing-md;
+
+  @include respond-to(desktop) {
+    grid-template-columns: 250px 1fr 200px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+// Quản lý hiển thị Sidebar và Ads bar theo thiết bị
+.sidebar,
+.ads-bar {
+  display: none;
+}
+
+.sidebar {
+  @include respond-to(tablet) {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+  }
+  @include respond-to(desktop) {
+    display: block;
+    align-self: start;
+    position: sticky;
+    top: 20px;
+  }
+}
+
+.ads-bar {
+  @include respond-to(desktop) {
+    display: block;
+    align-self: start;
+    position: sticky;
+    top: 20px;
+
+    .ads-box {
+      background-color: $warning-color;
+      color: white;
+      padding: $spacing-lg $spacing-md;
+      text-align: center;
+      border-radius: 8px;
+      height: 300px;
+      @include flex-center(column);
+
+      strong {
+        font-size: 1.5rem;
+        display: block;
+        margin-top: $spacing-sm;
+      }
+    }
+  }
+}
+
+// Lưới sản phẩm co giãn linh hoạt qua Mixin Respond-to
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer {
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: $spacing-md;
+}
