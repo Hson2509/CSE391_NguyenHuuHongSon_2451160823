@@ -1,0 +1,262 @@
+/* ==========================================================
+   RESET & BIẾN CƠ BẢN
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%; /* Ảnh responsive */
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================
+   MOBILE-FIRST STYLES (Mặc định cho màn hình < 768px)
+   ========================================================== */
+
+/* Header: Giao diện Mobile */
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem; /* Font size lớn cho logo */
+  font-weight: bold;
+}
+
+.menu-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: block; /* Hiện Hamburger trên mobile */
+}
+
+.nav-menu {
+  display: none; /* Ẩn menu ngang trên mobile */
+  /* Trong thực tế sẽ dùng JS để toggle class block khi bấm hamburger */
+}
+
+/* Layout Container: Mobile 1 cột */
+.layout-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Sidebar & Ads: Ẩn trên Mobile */
+.sidebar,
+.ads-bar {
+  display: none;
+}
+
+/* Product Grid: 1 cột trên Mobile */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-body h3 {
+  font-size: 1.1rem; /* Font size nhỏ trên mobile */
+  margin-bottom: 10px;
+}
+
+.card-body .price {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.btn-buy {
+  margin-top: auto; /* Đẩy nút xuống đáy */
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-buy:hover {
+  background-color: #2980b9;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* ==========================================================
+   TABLET BREAKPOINT (768px - 1023px)
+   ========================================================== */
+@media (min-width: 768px) {
+  /* Header thay đổi */
+  .menu-toggle {
+    display: none; /* Ẩn Hamburger */
+  }
+
+  .nav-menu {
+    display: flex; /* Hiện thanh menu ngang */
+    gap: 20px;
+  }
+
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Bố cục Tablet: Hiện Sidebar nằm ngang phía trên Grid */
+  .layout-container {
+    /* Sidebar dòng 1, Grid dòng 2 */
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: flex; /* Hiển thị Sidebar thành dạng ngang */
+    justify-content: space-around;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+  }
+
+  .sidebar h3 {
+    display: none; /* Ẩn tiêu đề bộ lọc cho đỡ tốn chỗ */
+  }
+
+  .filter-group ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+  }
+
+  .filter-group a {
+    text-decoration: none;
+    color: #3498db;
+  }
+
+  /* Product Grid: 2 cột trên Tablet */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tăng font size */
+  .card-body h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ==========================================================
+   DESKTOP BREAKPOINT (>= 1024px)
+   ========================================================== */
+@media (min-width: 1024px) {
+  /* Layout Container: Lưới 3 cột (Sidebar - Main - Ads) */
+  .layout-container {
+    grid-template-columns: 250px 1fr 200px; /* Sidebar cố định, Grid linh hoạt, Ads cố định */
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Sidebar trở lại dạng cột dọc */
+  .sidebar {
+    display: block;
+    align-self: start; /* Không kéo giãn chiều cao */
+    position: sticky;
+    top: 20px;
+  }
+
+  .sidebar h3 {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+  }
+
+  .filter-group {
+    margin-bottom: 20px;
+  }
+
+  .filter-group ul {
+    display: block; /* Trả list về dạng dọc */
+  }
+
+  .filter-group li {
+    margin-bottom: 8px;
+  }
+
+  /* Product Grid: 4 cột trên Desktop */
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Hiển thị cột Ads */
+  .ads-bar {
+    display: block;
+    align-self: start;
+    position: sticky;
+    top: 20px;
+  }
+
+  .ads-box {
+    background-color: #f39c12;
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 8px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ads-box strong {
+    font-size: 1.5rem;
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* Tăng font size lớn nhất */
+  .card-body h3 {
+    font-size: 1.1rem;
+  }
+}
