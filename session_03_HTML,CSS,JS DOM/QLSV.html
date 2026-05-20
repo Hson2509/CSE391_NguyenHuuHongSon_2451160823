@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="QLSV.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <h1>Quản lý sinh viên</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Sinh viên</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="start-section">
+            <div class="d-flex container stat-container">
+                <div class="stat-box total-students">
+                    <span class="stat-label">Tổng số sinh viên:</span>
+                    <span id="lbl-total-sv" class="stat-number"></span>
+                </div>
+                <div class="stat-box average-score d-flex">
+                    <span class="stat-label">Điểm trung bình chung:</span>
+                    <span id="lbl-average-score" class="stat-number"></span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <h2>Danh sách sinh viên</h2>
+                <button class="add-btn btn-choose">Thêm sinh viên</button>
+                <div>
+                    <table id="info-student">
+                        <tr>
+                            <th>Mã SV</th>
+                            <th>Họ tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Lớp học</th>
+                            <th>Điểm trung bình</th>
+                            <th>Email</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        <tr>
+                            <td>SV001</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>01/01/2000</td>
+                            <td>K66</td>
+                            <td>8.5</td>
+                            <td>nguyenvana@email.com</td>
+                            <td>
+                                <button class="bg-primary btn-choose">Edit</button>
+                                <button class="bg-danger btn-choose">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SV002</td>
+                            <td>Trần Thị B</td>
+                            <td>15/05/2000</td>
+                            <td>K66</td>
+                            <td>9.0</td>
+                            <td>tranthib@email.com</td>
+                            <td>
+                                <button class="bg-primary btn-choose">Edit</button>
+                                <button class="bg-danger btn-choose">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SV003</td>
+                            <td>Trần Thị C</td>
+                            <td>20/08/2000</td>
+                            <td>K66</td>
+                            <td>8.5</td>
+                            <td>tranthic@email.com</td>
+                            <td>
+                                <button class="bg-primary btn-choose">Edit</button>
+                                <button class="bg-danger btn-choose">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SV004</td>
+                            <td>Nguyễn Văn D</td>
+                            <td>15/06/2000</td>
+                            <td>K66</td>
+                            <td>9.0</td>
+                            <td>nguyenvand@email.com</td>
+                            <td>
+                                <button class="bg-primary btn-choose">Edit</button>
+                                <button class="bg-danger btn-choose">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SV005</td>
+                            <td>Phạm Văm Tùng</td>
+                            <td>15/07/2000</td>
+                            <td>K66</td>
+                            <td>9.0</td>
+                            <td>Phamvantung@email.com</td>
+                            <td>
+                                <button class="bg-primary btn-choose">Edit</button>
+                                <button class="bg-danger btn-choose">Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <div id="student-modal" class="form-overlay">
+            <div class="model-box">
+                <span class="close-btn" id="btn-close-modal">&times;</span>
+                <h2>Thêm sinh viên mới </h2>
+                <form id="add-student-form">
+                    <div class="form-group">
+                        <label for="student-id">Mã SV:</label>
+                        <input type="text" id="student-id" name="student-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-name">Họ tên:</label>
+                        <input type="text" id="student-name" name="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-birthday">Ngày sinh:</label>
+                        <input type="date" id="student-birthday" name="student-birthday" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-class">Lớp học:</label>
+                        <input type="text" id="student-class" name="student-class" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-average">Điểm trung bình:</label>
+                        <input type="number" id="student-average" name="student-average" step="0.1" min="0" max="10"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-email">Email:</label>
+                        <input type="email" id="student-email" name="student-email" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Thêm sinh viên</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
