@@ -75,3 +75,67 @@ Câu A2 (10đ) — Utilities & Components
    - .container: Rộng 100% màn hình. Thu lại thành một khung cố định (Ví dụ: 960px hoặc 1140px) và căn giữa.
    - .container-fluid: Rộng 100% màn hình.Luôn rộng 100% màn hình. Tràn viền (Full-width) ở mọi kích thước thiết bị, không bao giờ để lại khoảng trống thừa 2 bên.
    - .container-md: Rộng 100% màn hình Thu lại thành một khung cố định (giống hệt .container). Nó hoạt động như container-fluid (full 100%) ở các màn hình nhỏ, và lập tức biến thành container cố định ngay khi màn hình đạt từ mốc md (768px) trở lên.
+
+Câu C1:
+
+1. Quy trình đổi màu $primary sang #E63946
+   Để đổi màu chủ đạo của Bootstrap một cách hệ thống, bạn không sửa file .css đã biên dịch mà phải can thiệp vào mã nguồn SASS của nó.
+   - Công cụ cần thiết:
+     Node.js & NPM: Để cài đặt bộ biên dịch.
+     Sass Compiler: Cài đặt gói sass (Dart Sass) qua npm để biên dịch file .scss thành .css.
+     Mã nguồn Bootstrap SASS: Cài đặt qua lệnh npm install bootstrap.
+     Các bước thực hiện và file cần modify:
+     Bước 1: Tạo một file SASS riêng của bạn, ví dụ tên là main.scss.
+     Bước 2: Trong file main.scss, bạn tiến hành định nghĩa lại biến $primary trước khi import Bootstrap.
+   Bước 3: Chạy lệnh biên dịch file main.scss thành file style.css để nhúng vào HTML.
+   Cú pháp trong file main.scss:
+// 1. Ghi đè biến màu sắc (Phải đặt trước khi import)
+$primary: #E63946;
+     // 2. Import toàn bộ cấu trúc SASS của Bootstrap từ thư mục node_modules
+     @import "../node_modules/bootstrap/scss/bootstrap";
+
+2. Tại sao KHÔNG nên ghi đè trực tiếp .btn-primary { background: red; }?
+   - Việc sử dụng SASS variables mang lại lợi ích vượt trội so với việc override CSS thủ công vì:
+
+   - Tính đồng bộ hệ thống: Trong Bootstrap, màu $primary không chỉ áp dụng cho mỗi nút bấm (.btn-primary), nó còn liên kết với hàng loạt class khác như màu chữ (.text-primary), màu nền (.bg-primary), viền (.border-primary), trạng thái hover/active, các nút Alert, Badge, và thanh Navbar. Nếu bạn chỉ ghi đè .btn-primary, các thành phần còn lại vẫn sẽ giữ màu xanh mặc định, khiến giao diện bị "vỡ" màu.
+
+   - Tự động tính toán (Color Functions): Khi bạn đổi màu qua biến SASS, Bootstrap sẽ tự động dùng các hàm để tính toán ra màu hover (tối hơn 10%), màu active, màu bóng đổ (box-shadow outline) phù hợp một cách hoàn hảo mà bạn không cần mò mẫm chỉnh từng thuộc tính CSS.
+
+   - Code sạch (DRY): Tránh việc lặp lại mã và tăng kích thước file CSS vô ích.
+
+CÂU C2:
+
+- CSS Thuần (Vanilla CSS)
+  - Số dòng CSS cần viết
+  * Rất nhiều (80 - 150 dòng). Phải tự viết từng thuộc tính Flexbox, Grid, Media Queries cho Navbar, thiết lập hiệu ứng ẩn/hiện Hamburger, thiết lập border, padding cho card.
+  - Thời gian phát triển
+    - Chậm (Tốn nhiều giờ). Mất thời gian căn chỉnh pixel, test lỗi Responsive trên nhiều thiết bị, tự bắt sự kiện ẩn/hiện menu.
+  - Khả năng tùy biến
+    - Vô hạn. Bạn làm chủ 100% thuộc tính, có thể tạo ra những giao diện độc lạ, không đụng hàng và tối ưu dung lượng file ở mức nhẹ nhất.
+      Khi nào NÊN và KHÔNG NÊN dùng Bootstrap?
+
+- Bootstrap Version
+  - Số dòng CSS cần viết
+    Hầu như bằng 0 (hoặc vài dòng tinh chỉnh). Bạn chỉ cần gọi các class có sẵn như navbar navbar-expand-md, card, col-md-4 vào thẻ HTML.
+  - Thời gian phát triển
+    Cực nhanh (Vài phút). Copy-paste component chuẩn từ tài liệu của Bootstrap và sửa lại nội dung.
+  - Khả năng tùy biến
+    Bị giới hạn nếu chỉ dùng CSS thuần để đè. Website dễ bị dính giao diện "rập khuôn" (nhìn vào biết ngay dùng Bootstrap) trừ khi cấu hình sâu bằng SASS.
+
+- Khi nào NÊN và KHÔNG NÊN dùng Bootstrap?
+
+* NÊN dùng Bootstrap khi:
+
+Dự án cần làm gấp (Deadlines ngắn), các dự án Hackathon hoặc xây dựng các trang quản trị (Admin Dashboard), trang nội bộ (CMS) không quá khắt khe về tính độc quyền của giao diện.
+
+Làm việc trong đội nhóm (Teamwork): Bootstrap cung cấp một chuẩn đặt tên class chung (Bootstrap Convention), giúp tất cả thành viên đọc code của nhau là hiểu ngay lập tức mà không cần giải thích.
+
+Bạn chưa mạnh về cấu trúc Responsive và muốn một hệ thống lưới hoạt động an toàn, không lỗi trên mọi thiết bị.
+
+- KHÔNG NÊN dùng Bootstrap khi:
+
+Dự án đòi hỏi thiết kế độc lạ, mang tính nghệ thuật cao hoặc các trang Landing Page sáng tạo của các Brand lớn (Lúc này sửa các class mặc định của Bootstrap còn tốn thời gian hơn tự viết).
+
+Cần tối ưu tốc độ tải trang tuyệt đối: Khai báo cả thư viện Bootstrap đồng nghĩa với việc bạn phải tải một file CSS/JS khá nặng chứa hàng ngàn class mà dự án có thể chỉ dùng tới 10% trong số đó.
+
+Quan trọng nhất: Khi bạn đang trong quá trình học lập trình Web cơ bản. Dựa dẫm vào Bootstrap quá sớm sẽ khiến bạn bị hổng kiến thức cốt lõi về Flexbox, Grid, và Media Queries.
