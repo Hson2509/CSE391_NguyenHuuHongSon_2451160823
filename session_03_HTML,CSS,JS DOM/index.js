@@ -69,6 +69,10 @@ function validateData(id, name, birth, stuClass, average, email) {
         document.getElementById('error-student-id').innerText = 'Vui lòng nhập Mã SV';
         isValid = false;
     }
+    else if (id.length >= 5) {
+        document.getElementById('error-student-id').innerText = 'Mã SV phải ít hơn 5 ký tự (VD: SV01)';
+        isValid = false;
+    }
 
     // 3. Kiểm tra Họ Tên
     if (name === '') {
@@ -85,6 +89,10 @@ function validateData(id, name, birth, stuClass, average, email) {
     // 5. Kiểm tra Lớp học
     if (stuClass === '') {
         document.getElementById('error-student-class').innerText = 'Vui lòng nhập Lớp học';
+        isValid = false;
+    }
+    else if (stuClass.length > 3) {
+        document.getElementById('error-student-class').innerText = 'Lớp học tối đa 3 ký tự (VD: K66)';
         isValid = false;
     }
 
