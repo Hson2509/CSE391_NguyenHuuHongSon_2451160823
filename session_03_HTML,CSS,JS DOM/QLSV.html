@@ -26,11 +26,11 @@
             <div class="d-flex container stat-container">
                 <div class="stat-box total-students">
                     <span class="stat-label">Tổng số sinh viên:</span>
-                    <span id="lbl-total-sv stat-label" class="stat-number"></span>
+                    <span id="lbl-total-sv" class="stat-number stat-label"></span>
                 </div>
                 <div class="stat-box average-score d-flex">
                     <span class="stat-label">Điểm trung bình chung:</span>
-                    <span id="lbl-average-score" class="stat-number"></span>
+                    <span id="lbl-average-score" class="stat-number stat-label"></span>
                 </div>
             </div>
         </section>
@@ -62,31 +62,37 @@
             <div class="model-box">
                 <span class="close-btn" id="btn-close-modal">&times;</span>
                 <h2>Thêm sinh viên mới </h2>
-                <form id="add-student-form">
+                <form id="add-student-form" novalidate>
                     <div class="form-group">
                         <label for="student-id">Mã SV:</label>
-                        <input type="text" id="student-id" name="student-id" required>
+                        <input type="text" id="student-id" name="student-id" placeholder="VD:SV001">
+                        <div class="error" id="error-student-id"></div>
                     </div>
                     <div class="form-group">
                         <label for="student-name">Họ tên:</label>
-                        <input type="text" id="student-name" name="student-name" required>
+                        <input type="text" id="student-name" name="student-name">
+                        <div class="error" id="error-student-name"></div>
                     </div>
                     <div class="form-group">
                         <label for="student-birthday">Ngày sinh:</label>
-                        <input type="date" id="student-birthday" name="student-birthday" required>
+                        <input type="date" id="student-birthday" name="student-birthday">
+                        <div class="error" id="error-student-birthday"></div>
                     </div>
                     <div class="form-group">
                         <label for="student-class">Lớp học:</label>
-                        <input type="text" id="student-class" name="student-class" required>
+                        <input type="text" id="student-class" name="student-class" placeholder="K66">
+                        <div class="error" id="error-student-class"></div>
                     </div>
                     <div class="form-group">
                         <label for="student-average">Điểm trung bình:</label>
                         <input type="number" id="student-average" name="student-average" step="0.1" min="0" max="10"
-                            required>
+                            placeholder="VD:8.8">
+                        <div class="error" id="error-student-average"></div>
                     </div>
                     <div class="form-group">
                         <label for="student-email">Email:</label>
-                        <input type="email" id="student-email" name="student-email" required>
+                        <input type="email" id="student-email" name="student-email" placeholder="VD:abc@gmail.com">
+                        <div class="error" id="error-student-email"></div>
                     </div>
                     <div class="btn">
                         <button type="submit" class="btn-submit">Thêm/Sửa sinh viên</button>

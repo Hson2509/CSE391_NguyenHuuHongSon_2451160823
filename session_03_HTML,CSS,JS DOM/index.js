@@ -40,6 +40,8 @@ function CloseAndResetForm() {
     addStudentForm.reset();
     currentEditId = null; // Reset lại sổ
     document.getElementById('student-id').readOnly = false; // Mở khóa ô Mã SV
+    const errorDivs = document.querySelectorAll('.error');
+    errorDivs.forEach(div => div.innerText = '');
 }
 
 // Mở Pop-up khi bấm nút "Thêm sinh viên" ở ngoài bảng
@@ -55,6 +57,65 @@ FormOverlay.addEventListener('click', function (event) {
     }
 });
 
+function validateData(id, name, birth, stuClass, average, email) {
+    let isValid = true; // Ban đầu mặc định là đúng hết
+
+    // 1. Quét sạch lỗi cũ trước khi kiểm tra lại
+    const errorDivs = document.querySelectorAll('.error');
+    errorDivs.forEach(div => div.innerText = '');
+
+    // 2. Kiểm tra Mã Sinh Viên
+    if (id === '') {
+        document.getElementById('error-student-id').innerText = 'Vui lòng nhập Mã SV';
+        isValid = false;
+    }
+
+    // 3. Kiểm tra Họ Tên
+    if (name === '') {
+        document.getElementById('error-student-name').innerText = 'Vui lòng nhập Họ tên';
+        isValid = false;
+    }
+
+    // 4. Kiểm tra Ngày sinh
+    if (birth === '') {
+        document.getElementById('error-student-birthday').innerText = 'Vui lòng chọn Ngày sinh';
+        isValid = false;
+    }
+
+    // 5. Kiểm tra Lớp học
+    if (stuClass === '') {
+        document.getElementById('error-student-class').innerText = 'Vui lòng nhập Lớp học';
+        isValid = false;
+    }
+
+    // 6. Kiểm tra Điểm trung bình
+    if (average === '') {
+        document.getElementById('error-student-average').innerText = 'Vui lòng nhập Điểm trung bình';
+        isValid = false;
+    } else {
+        const score = parseFloat(average);
+        if (isNaN(score) || score < 0 || score > 10) {
+            document.getElementById('error-student-average').innerText = 'Điểm phải là số hợp lệ từ 0 đến 10';
+            isValid = false;
+        }
+    }
+
+    // 7. Kiểm tra Email
+    if (email === '') {
+        document.getElementById('error-student-email').innerText = 'Vui lòng nhập Email';
+        isValid = false;
+    } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('error-student-email').innerText = 'Email không đúng định dạng (VD: a@gmail.com)';
+            isValid = false;
+        }
+    }
+
+    // Trả về kết quả: Nếu có ô nào dính lỗi thì isValid sẽ là false, chặn Submit!
+    return isValid;
+}
+
 
 // ==========================================
 // 4. XỬ LÝ SỰ KIỆN LƯU FORM (THÊM / SỬA)
@@ -69,6 +130,10 @@ addStudentForm.addEventListener('submit', function (e) {
     const studentAverage = document.getElementById('student-average').value;
     const studentEmail = document.getElementById('student-email').value.trim();
 
+    const isValid = validateData(studentID, studentName, studentBirth, studentClass, studentAverage, studentEmail);
+    if (!isValid) {
+        return;
+    }
     if (currentEditId === null) {
         // Kiểm tra xem mã sinh viên đã tồn tại chưa
         const isExist = students.some(s => s.id === studentID);
