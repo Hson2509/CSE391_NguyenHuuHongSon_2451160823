@@ -127,3 +127,51 @@ const html = `
     <span>Giá: ${price}đ</span>
 </div>
 `;
+
+Bài C1:
+
+- Danh sách các lỗi trong đoạn code
+
+  1.if (giaSauGiam = 0)
+
+Giải thích: Thay vì kiểm tra xem giá sau giảm có bằng 0 hay không, đoạn code này lại gán luôn biến giaSauGiam thành 0. Số 0 trong JavaScript là Falsy, nên điều kiện if này luôn sai (không bao giờ in ra "Sản phẩm miễn phí"). Tai hại hơn, nó khiến hàm luôn return 0 bất kể giá gốc là bao nhiêu!
+
+Cách sửa: Đổi thành if (giaSauGiam === 0).
+
+2. tinhGiaGiamGia("100000", 20)
+
+Giải thích: Bạn đang truyền một chuỗi String ("100000") thay vì số (Number). Dù JavaScript có tự động ép kiểu ngầm định để tính phép trừ, nhưng đây là một thói quen rất xấu và dễ gây ra lỗi NaN (Not a Number) trong các dự án phức tạp hoặc khi dùng phép cộng (+ sẽ thành nối chuỗi thay vì cộng toán học).
+
+Cách sửa: Truyền đúng kiểu số: tinhGiaGiamGia(100000, 20).
+
+3. return "Phần trăm giảm không hợp lệ" và return giaSauGiam
+
+Giải thích: Một hàm không nên lúc thì trả về chuỗi (String), lúc thì trả về số (Number). Nếu bạn mang kết quả này (chuỗi) đi tính toán tiếp ở nơi khác, toàn bộ hệ thống sẽ bị lỗi NaN.
+
+Cách sửa: Sử dụng throw new Error() để ném ra ngoại lệ khi đầu vào sai, giúp bắt lỗi chặt chẽ hơn.
+
+4. var giamGia = ... và let giaSauGiam = ...
+
+Giải thích: Cả hai biến giamGia và giaSauGiam sau khi tính toán xong đều không bị thay đổi giá trị. Việc dùng var là lỗi thời (gây rò rỉ bộ nhớ ra global scope), còn dùng let thì chưa tối ưu về mặt thể hiện ý định của người viết code.
+
+Cách sửa: Đổi cả hai thành const để đảm bảo tính bất biến (immutable).
+
+5. Lỗi thiếu xác thực (Validation) cho giá bán
+
+Vị trí: Thiếu ở đầu hàm.
+
+Giải thích: Code chỉ mới kiểm tra phanTramGiam mà quên mất giaBan. Nếu ai đó truyền giaBan là một số âm (-50000) hoặc truyền chữ ("abc"), hệ thống vẫn tính toán và ra kết quả sai lệch.
+
+Cách sửa: Bổ sung điều kiện kiểm tra giaBan > 0 và phải là kiểu số.
+
+6. Lỗi "ẩn" : Dùng var trong vòng lặp có hàm bất đồng bộ (setTimeout)
+
+Vị trí: for (var i = 0; i < 5; i++) { setTimeout(...) }
+
+Giải thích : Vòng lặp for chạy rất nhanh, kết thúc ngay lập tức và đưa i lên giá trị 5.
+
+Do var có tính chất Function Scope (hoặc Global Scope nếu ở ngoài cùng), nó chỉ tạo ra duy nhất một biến i dùng chung cho bộ nhớ.
+
+Hàm setTimeout bị hoãn lại 1 giây (bất đồng bộ). Khi 1 giây trôi qua, 5 hàm setTimeout cùng tỉnh dậy và đi tìm biến i. Lúc này, biến i duy nhất đó đã là 5. Kết quả: In ra "Item 5" lặp lại 5 lần.
+
+Cách sửa: Đổi var i thành let i. Từ khóa let có tính chất Block Scope (Phạm vi khối). Nghĩa là ở mỗi vòng lặp, nó sẽ tạo ra một "bản sao" biến i hoàn toàn mới và độc lập. Các hàm setTimeout sẽ "ghi nhớ" chính xác giá trị i ở vòng lặp của riêng nó (0, 1, 2, 3, 4).
