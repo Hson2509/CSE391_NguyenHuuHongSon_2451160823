@@ -4,16 +4,21 @@ import LifecycleDemo from "./components/LifecycleDemo";
 import BadCounter from "./components/BadCounter";
 import GoodCounter from "./components/GoodCounter";
 import FlowDemo from "./components/Flow";
+import SimpleVariables from "./components/SimpleVariables";
+import ConditionalChallenge from "./components/Conditional";
+import ListRendering from "./components/ListRendering";
 function App() {
   return (
     <div>
-      <h1>Chào mừng đến với cửa hàng của chúng tôi!</h1>
       {/* <UserProfile />
       <ProductInfo />
-      <LifecycleDemo /> */}
+      <LifecycleDemo />
       <BadCounter />
       <GoodCounter />
-      <FlowDemo />
+      <FlowDemo /> */}
+      <SimpleVariables />
+      <ConditionalChallenge />
+      <ListRendering />
     </div>
   );
 }
