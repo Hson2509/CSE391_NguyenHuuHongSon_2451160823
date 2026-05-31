@@ -1,0 +1,1 @@
+Link drive Video Phần D: https://drive.google.com/drive/folders/1AxuHrqNZGoez33Au7-OKoY3Ice6YLOVo?fbclid=IwY2xjawROdApleHRuA2FlbQIxMABicmlkETFvc1dQSHdjQUYyREtiejFYc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn9M5phF6r9aTxXwyMFoKgXl5PSdo6m29qv925xqOLEqmsIpnMyKBoLjFjkw_aem_tkN2q7cqKBlEZLqK1xsIyQ
