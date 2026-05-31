@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Keyboard App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Trình Quản Lý Ảnh</h1>
+        <p>Phím tắt: [←][→] Đổi ảnh | [1-9] Chuyển nhanh | [Space] Phát/Dừng | [Ctrl+K] Tìm kiếm</p>
+    </header>
+
+    <main>
+        <section class="gallery" aria-label="Image Gallery">
+            <div class="image-container">
+                <img id="mainImage" src="https://placehold.co/600x400?text=Image+1" alt="Hình ảnh 1 trong bộ sưu tập">
+                <div id="playIndicator" class="hidden">▶ Đang phát tự động</div>
+            </div>
+            <div class="controls">
+                <button id="prevBtn" aria-label="Ảnh trước (Mũi tên trái)">&#8592; Trước</button>
+                <button id="togglePlayBtn" aria-label="Phát hoặc Dừng (Phím Space)">Play/Pause</button>
+                <button id="nextBtn" aria-label="Ảnh tiếp theo (Mũi tên phải)">Tiếp &#8594;</button>
+            </div>
+            <div class="thumbnails" id="thumbnails" role="tablist" aria-label="Danh sách ảnh">
+            </div>
+        </section>
+    </main>
+
+    <div id="commandPalette" class="palette-overlay hidden" role="dialog" aria-modal="true"
+        aria-label="Công cụ tìm kiếm lệnh">
+        <div class="palette-content">
+            <input type="text" id="cmdInput" placeholder="Gõ lệnh (vd: theme, settings)..."
+                aria-label="Ô tìm kiếm lệnh">
+            <ul id="cmdList" role="listbox">
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

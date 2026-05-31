@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui;
+  background: #fafafa;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+h1 {
+  margin-bottom: 5px;
+}
+
+/* Focus Management (Trọng tâm của a11y) */
+:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.gallery {
+  max-width: 600px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.image-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+img {
+  max-width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+#playIndicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.controls button {
+  padding: 10px 20px;
+  border: none;
+  background: #e0e0e0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.controls button:hover {
+  background: #ccc;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+.thumb {
+  width: 40px;
+  height: 40px;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  font-weight: bold;
+}
+.thumb.active {
+  border-color: #005fcc;
+  background: #005fcc;
+  color: white;
+}
+
+/* Command Palette */
+.hidden {
+  display: none !important;
+}
+.palette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  z-index: 100;
+}
+.palette-content {
+  background: white;
+  width: 500px;
+  height: fit-content;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+#cmdInput {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  border: none;
+  border-bottom: 1px solid #eee;
+  outline: none;
+}
+#cmdList {
+  list-style: none;
+  text-align: left;
+  max-height: 300px;
+  overflow-y: auto;
+}
+#cmdList li {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f9f9f9;
+}
+#cmdList li.selected,
+#cmdList li:hover {
+  background: #005fcc;
+  color: white;
+}
