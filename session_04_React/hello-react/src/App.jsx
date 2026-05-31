@@ -16,7 +16,10 @@ import NumberState from "./components/NumberState";
 import StringState from "./components/StringState";
 import BoolState from "./components/BoolState";
 import MultipleStates from "./components/MultipleStates";
-
+import ClickEvents from "./components/ClickEvent";
+import InputEvents from "./components/InputEvents";
+import KeyboardEvents from "./components/KeyboardEvents";
+import FormEvents from "./components/FormEvent";
 function App() {
   const products = [
     {
@@ -118,6 +121,10 @@ function App() {
         <StringState />
         <BoolState />
         <MultipleStates />
+        <ClickEvents />
+        <InputEvents />
+        <KeyboardEvents />
+        <FormEvents />
       </main>
     </div>
   );
