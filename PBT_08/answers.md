@@ -121,3 +121,98 @@ const copy = { ...product };
 copy.specs.ram = 16;
 console.log(product.specs.ram); // Output: 16
 Tại sao lại là 16? :Toán tử spread (...) chỉ thực hiện Shallow Copy (sao chép nông). Nó chỉ sao chép giá trị của các thuộc tính ở cấp độ đầu tiên. Đối với thuộc tính specs (là một object lồng nhau), nó không tạo ra object mới mà chỉ sao chép tham chiếu (reference) trỏ tới ô nhớ của object specs ban đầu. Do đó, cả product.specs và copy.specs đều trỏ chung về một chỗ. Khi bạn thay đổi copy.specs.ram, giá trị gốc cũng bị thay đổi theo.
+
+Câu C1 (10đ) — Refactor Code
+
+const processOrders = orders => orders
+// 1. Lọc đơn hàng hoàn tất & giá trị > 100k (Dùng Destructuring lấy status, total)
+.filter(({ status, total }) => status === "completed" && total > 100000)
+// 2. Biến đổi dữ liệu sang format mới
+.map(({ id, customer, total }) => ({
+id, customer, total,
+discount: total _ 0.1,
+finalTotal: total _ 0.9 // Rút gọn phép tính (total - total \* 0.1)
+}))
+// 3. Sắp xếp giảm dần theo finalTotal
+.sort((a, b) => b.finalTotal - a.finalTotal);
+
+const miniArray = {
+map(arr, fn) {
+const result = [];
+for (let i = 0; i < arr.length; i++) {
+// Truyền đủ 3 tham số: phần tử hiện tại, chỉ mục, mảng gốc
+result.push(fn(arr[i], i, arr));
+}
+return result;
+},
+
+    filter(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            // Nếu hàm callback trả về true (truthy), đưa phần tử vào mảng kết quả
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    },
+
+    reduce(arr, fn, initialValue) {
+        // Nếu không truyền initialValue, lấy phần tử đầu tiên làm giá trị khởi tạo
+        let accumulator = initialValue !== undefined ? initialValue : arr[0];
+
+        // Nếu đã có initialValue thì lặp từ 0, nếu chưa có thì lặp từ 1 (bỏ qua phần tử đầu đã lấy)
+        let startIndex = initialValue !== undefined ? 0 : 1;
+
+        for (let i = startIndex; i < arr.length; i++) {
+            // Gán lại accumulator bằng kết quả của lần chạy hiện tại
+            accumulator = fn(accumulator, arr[i], i, arr);
+        }
+        return accumulator;
+    }
+
+};
+
+// === TEST ===
+console.log(miniArray.map([1, 2, 3], x => x \* 2)); // → [2, 4, 6]
+console.log(miniArray.filter([1, 2, 3, 4], x => x > 2)); // → [3, 4]
+console.log(miniArray.reduce([1, 2, 3, 4], (a, b) => a + b, 0)); // → 10
+
+Câu C2 (10đ) — Thiết kế API
+
+const miniArray = {
+map(arr, fn) {
+const result = [];
+for (let i = 0; i < arr.length; i++) {
+result.push(fn(arr[i], i, arr));
+}
+return result;
+},
+
+    filter(arr, fn) {
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    },
+
+    reduce(arr, fn, initialValue) {
+        let accumulator = initialValue !== undefined ? initialValue : arr[0];
+        let startIndex = initialValue !== undefined ? 0 : 1;
+
+        for (let i = startIndex; i < arr.length; i++) {
+            // Gán lại accumulator bằng kết quả của lần chạy hiện tại
+            accumulator = fn(accumulator, arr[i], i, arr);
+        }
+        return accumulator;
+    }
+
+};
+
+// === TEST ===
+console.log(miniArray.map([1, 2, 3], x => x \* 2)); // → [2, 4, 6]
+console.log(miniArray.filter([1, 2, 3, 4], x => x > 2)); // → [3, 4]
+console.log(miniArray.reduce([1, 2, 3, 4], (a, b) => a + b, 0)); // → 10
