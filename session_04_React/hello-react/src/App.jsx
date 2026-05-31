@@ -20,6 +20,10 @@ import ClickEvents from "./components/ClickEvent";
 import InputEvents from "./components/InputEvents";
 import KeyboardEvents from "./components/KeyboardEvents";
 import FormEvents from "./components/FormEvent";
+import ListBasics from "./components/ListBasic";
+import CURD from "./components/CURD";
+import DeleteItem from "./components/Delete";
+import UpdateItem from "./components/Update";
 function App() {
   const products = [
     {
@@ -125,6 +129,10 @@ function App() {
         <InputEvents />
         <KeyboardEvents />
         <FormEvents />
+        <ListBasics />
+        <CURD />
+        <DeleteItem />
+        <UpdateItem />
       </main>
     </div>
   );
