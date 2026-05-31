@@ -12,6 +12,11 @@ import Footer from "./components/footer";
 import ProductCard from "./components/ProductCard";
 import UserCard from "./components/UserCard";
 import PriceTag from "./components/PriceTag";
+import NumberState from "./components/NumberState";
+import StringState from "./components/StringState";
+import BoolState from "./components/BoolState";
+import MultipleStates from "./components/MultipleStates";
+
 function App() {
   const products = [
     {
@@ -106,9 +111,14 @@ function App() {
           <h2>Giá mô hình Resin</h2>
           {/* Sử dụng PriceTag */}
           <PriceTag originalPrice={1500000} salePrice={1250000} />
+          <Footer />
         </div>
+
+        <NumberState />
+        <StringState />
+        <BoolState />
+        <MultipleStates />
       </main>
-      <Footer />
     </div>
   );
 }
