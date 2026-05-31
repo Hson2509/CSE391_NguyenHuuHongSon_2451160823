@@ -1,3 +1,4 @@
+// 1. Import tất cả các bài tập cũ
 import UserProfile from "./components/UserProfile";
 import ProductInfo from "./components/ProductInfo";
 import LifecycleDemo from "./components/LifecycleDemo";
@@ -24,6 +25,10 @@ import ListBasics from "./components/ListBasic";
 import CURD from "./components/CURD";
 import DeleteItem from "./components/Delete";
 import UpdateItem from "./components/Update";
+
+// 2. Import ứng dụng Todo List vừa tạo
+import TodoList from "./components/TodoList";
+
 function App() {
   const products = [
     {
@@ -45,11 +50,14 @@ function App() {
       image: "https://via.placeholder.com/200",
     },
   ];
+
   return (
-    <div>
+    <div style={{ backgroundColor: "#f4f7f6", minHeight: "100vh" }}>
+      {/* HEADER LUÔN Ở TRÊN CÙNG */}
       <Header />
-      <main>
-        {/* --- Phần 1: Các component bài tập cũ --- */}
+
+      <main style={{ paddingBottom: "50px" }}>
+        {/* --- Phần 1: Các component bài tập cơ bản --- */}
         <div style={{ padding: "20px", borderBottom: "2px solid #ccc" }}>
           <UserProfile />
           <ProductInfo />
@@ -61,7 +69,9 @@ function App() {
           <ConditionalChallenge />
           <ListRendering />
         </div>
-        <div style={{ padding: "20px" }}>
+
+        {/* --- Phần 2: Danh sách sản phẩm --- */}
+        <div style={{ padding: "20px", borderBottom: "2px solid #ccc" }}>
           <h2 style={{ textAlign: "center" }}>Danh sách sản phẩm</h2>
           <div
             style={{
@@ -80,60 +90,69 @@ function App() {
             ))}
           </div>
         </div>
+
+        {/* --- Phần 3: Thẻ người dùng và Giá --- */}
         <div
           style={{
             padding: "20px",
             fontFamily: "sans-serif",
             maxWidth: "400px",
+            margin: "0 auto",
           }}
         >
           <h2>Danh sách thẻ người dùng</h2>
-          {/* Hiển thị 3 UserCard với dữ liệu khác nhau qua Props */}
           <UserCard
             name="Nguyễn Hữu Sơn"
             email="son.nguyen@thuyloi.edu.vn"
             avatar="https://placehold.co/100x100/3498db/white?text=S"
           />
-
           <UserCard
             name="Satoru Gojo"
             email="gojo.sensei@jujutsu.jp"
             avatar="https://placehold.co/100x100/9b59b6/white?text=G"
           />
-
           <UserCard
             name="Son Goku"
             email="goku@capsulecorp.com"
             avatar="https://placehold.co/100x100/e67e22/white?text=K"
           />
 
-          <hr
-            style={{
-              margin: "20px 0",
-              border: "none",
-              borderTop: "1px solid #eee",
-            }}
-          />
+          <hr style={{ margin: "20px 0", borderTop: "1px solid #ccc" }} />
 
           <h2>Giá mô hình Resin</h2>
-          {/* Sử dụng PriceTag */}
           <PriceTag originalPrice={1500000} salePrice={1250000} />
-          <Footer />
         </div>
 
-        <NumberState />
-        <StringState />
-        <BoolState />
-        <MultipleStates />
-        <ClickEvents />
-        <InputEvents />
-        <KeyboardEvents />
-        <FormEvents />
-        <ListBasics />
-        <CURD />
-        <DeleteItem />
-        <UpdateItem />
+        {/* --- Phần 4: Các bài tập State & Events --- */}
+        <div
+          style={{
+            padding: "20px",
+            borderTop: "2px solid #ccc",
+            borderBottom: "2px solid #ccc",
+          }}
+        >
+          <NumberState />
+          <StringState />
+          <BoolState />
+          <MultipleStates />
+          <ClickEvents />
+          <InputEvents />
+          <KeyboardEvents />
+          <FormEvents />
+          <ListBasics />
+          <CURD />
+          <DeleteItem />
+          <UpdateItem />
+        </div>
+
+        {/* --- Phần 5: ỨNG DỤNG TODO LIST HOÀN CHỈNH --- */}
+        <div style={{ padding: "40px 20px" }}>
+          <TodoList />
+        </div>
       </main>
+
+      {/* FOOTER LUÔN Ở DƯỚI CÙNG */}
+      <Footer />
     </div>
   );
 }
